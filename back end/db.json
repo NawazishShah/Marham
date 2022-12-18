@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "name": "Guitar House (0323 8435619 )",
+      "email": "khuram.21.09.19@gmail.com",
+      "id": 11
+    },
+    {
+      "name": "",
+      "email": "",
+      "id": 12
+    },
+    {
+      "name": "",
+      "email": "",
+      "id": 13
+    }
+  ],
+  "Pateint": [
+    {
+      "name": "Khuram Shahzad",
+      "email": "khuram.21.09.19@gmail.com",
+      "id": 6
+    },
+    {
+      "id": "9",
+      "name": "Guitar House (0323 8435619 )",
+      "email": "khuram.21.09.19@gmail.com",
+      "pass": "123"
+    },
+    {
+      "id": "88",
+      "name": "user",
+      "email": "khuram.21.09.19@gmail.com",
+      "pass": "99999"
+    }
+  ]
+}
