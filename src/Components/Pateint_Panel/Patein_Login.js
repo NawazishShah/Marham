@@ -2,48 +2,96 @@ import React, { useEffect } from "react";
 // import { useFormik } from 'formik';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useRef } from "react";
-
+// import { useRef } from "react";
+import Pateint_Dashboard from "./Pateint_Dashboard";
 
 
 const Patient_Loging = () => {
+//  const [database, setDatabase] = useState([]);
+//  const [email, setEmail]=useState([]);
   const [database, setDatabase] = useState([]);
-  
- 
+  // const [email, setEmail] = useState([]);
+  // const [pass, setPass] = useState([]);
+  // const [email, setEmail] = useState();
+  //   const [pass, setPas] = useState();
  const nav=useNavigate();
  const Click=()=>{
-  nav('/Home')
+  nav('/Patient_Dashboard')
+  
  }
-  const email=useRef();
-  const password =useRef();
-  const Submit=()=>{
-  if(email.current.value=="khuram.21.09.19@gmail.com"&&password.current.value=="sam19oct"){
-    localStorage.setItem("setemail","khuram.21.09.19@gmail.com");
-    localStorage.setItem("Pass","Khuram19oct")
-  Click();
-  }else{
-    alert("Please Entre true pass word")
-  }
-  }
+  // const email=useRef();
+  // const password =useRef();
+  // const Pateint={email, password}
+//   fetch('http://localhost:3008/Pateint', {
+//     method: "GET",
+//     headers: {
+//         "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(Pateint)
+// }).then(resp => (resp.json() ));
+
+
+
+  
   const navigate = useNavigate();
   const handleClick = () =>{
     
     
     navigate("Doctor_Home_Page")
   };
+  const SUBMIT =(event)=>{
+    event.preventDefault();
+    const { email, password } = document.forms[0];
+    const userData = database.find((user) => user.email === email.value );
+    const userData2 = database.find((user) => user.password === password.value );
+    const Total= userData && userData2;
+    if (userData) {
+      if ((userData.email !== email.value)||(userData.email!==email.value) ) {
+        // Invalid password
+        alert("Invalid password");
+      } else {
+        // log the user in
+        localStorage.setItem('name', JSON.stringify(userData.name));
+        
+        // handleClick();
+        Click();
+      }
+    } else {
+      // Username not found
+      alert("email not found");
+    }
+
+    console.log(password, email);
+
+    if (!email.value || !password.value) {
+      alert("Fill the empty input fields");
+      return false;
+    }
+
+
+    // alert("new click")
+   
+                   
+}
+useEffect(()=>{
+  fetch("http://localhost:3008/Pateint")
+  .then((response) => response.json())
+  .then((json) => setDatabase(json))
+},[])
  
-  return (
+return (
   
     <div className="form mt-3">
       <h2 className="text-center">Login</h2>
-      <form onSubmit={Submit}>
+      <form onSubmit={SUBMIT}>
       <div className="form-body">
         <div className="email">
           <label className="form__label" for="email">
             Email{" "}
           </label>
           <input
-            type="text" ref={email}
+            type="text" 
+            // ref={email}
             id="email"
             className="form-control"
             placeholder="Email"
@@ -56,7 +104,7 @@ const Patient_Loging = () => {
           <input
             className="form-control"
             type="password"
-            ref={password}
+            // ref={password}
             id="password"
             placeholder="Password"
           />

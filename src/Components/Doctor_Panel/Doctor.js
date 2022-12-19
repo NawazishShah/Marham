@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useRef } from "react";
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 
 const Doctor_Loging = () => {
   const [database, setDatabase] = useState([]);
@@ -36,7 +36,7 @@ const Doctor_Loging = () => {
   return (
   
     <div className="form mt-3">
-     <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} />
+     {/* <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} /> */}
       <h2 className="text-center">Login</h2>
       <form onSubmit={Submit}>
       <div className="form-body">

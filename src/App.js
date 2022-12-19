@@ -15,6 +15,7 @@ import {  Routes, Route } from "react-router-dom";
  import Hospital_Login from './Components/Hospital_Panel/Hospital_Dashboard';
 import Edit_Doctors from './Components/Doctor_Panel/Edit_Doctor';
 import Patient_Loging from './Components/Pateint_Panel/Patein_Login';
+import Pateint_Dashboard from './Components/Pateint_Panel/Pateint_Dashboard';
 // import Moment from 'react-moment';
 // import 'moment-timezone';
 //  import User_Home from './Components/Home';
@@ -34,7 +35,7 @@ function App() {
       <header className="App-header">
         <h1>MERHAM</h1>
       </header>
-      
+     
       <Routes>
       <Route exact path="/Main_Page"  element={<User_Page />}/>
       <Route exact path="/Hospital_Login"  element={<Hospital_Login />}/>
@@ -43,9 +44,11 @@ function App() {
         <Route exact path="/Patient_Sign_Up_Page"  element={<Sign />}/> 
         <Route exact path="/Patient_Login_Page"  element={<Patient_Loging />}/> 
         <Route exact path="/Patient"  element={<Pateint_Data />}/> 
+        <Route exact path="/Patient_Dashboard"  element={<Pateint_Dashboard />}/>
         <Route path="/Doctor_Login"  element={<Doctor_Loging />}/>
         <Route path="/Add_Doctor"  element={<Add_Doctors />}/>
-        // <Route path="/Home/Edit_Doctors/:id"  element={<Edit_Doctors />}/>
+         <Route path="/Home/Edit_Doctors/:id"  element={<Edit_Doctors />}/>
+        
       </Routes>
       
             {/* <Moment>{dateToFormat}</Moment> */}

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+import Nav from 'react-bootstrap/Nav';
+
+
 const Pateint_Data=()=>{
  
   const [usersList, setUsersList] = useState([]);
@@ -25,34 +28,18 @@ const Pateint_Data=()=>{
 
     
     return(
+
+
+      
       <table className="table table-bordered" varriant="danger">
-      <thead className="" >
-      <th>
-          <tr>Id</tr>
-          </th>
-        <th>
-          <tr>Name</tr>
-          </th>
-         
-          <th>
-          <tr>Email
-          </tr>
-          </th>
-          <th>
-          
-          <tr>Password
-          </tr>
-          
-          </th>
-          <th>
-          
-          <tr>Phone Nubmer
-          </tr>
-          
-          </th>
-         
-         
-      </thead>
+      <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone No</th>
+    </tr>
+  </thead>
       
       <tbody >
         {usersList.map((Patient) => (
@@ -73,5 +60,9 @@ const Pateint_Data=()=>{
   
  
 
-    )
+    
+
+
+
+)
 }; export default Pateint_Data;

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-
+import Sidebar from './Pateint_Dashboard';
 const Sign = () => {
     const nav = useNavigate();
     const [id, setId] = useState();
@@ -19,7 +19,9 @@ const Sign = () => {
         nav('/Patient_Login_Page');
     }
     const handleClick = () => {
-        nav('/Home');
+        nav('/Patient_Dashboard');
+     
+        
     }
     const HandelSubmit = () => {
         if (!id || !name || !email || !pass)
@@ -28,7 +30,7 @@ const Sign = () => {
             alert('Fill the empty input fields')
 
         } else {
-            // handleClick2();
+            handleClick2();
         }
 
     }

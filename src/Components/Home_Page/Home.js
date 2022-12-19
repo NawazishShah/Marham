@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
-import Container from 'react-bootstrap/Container';
+
+import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import {Link} from "react-router-dom";
 import Button from "react-bootstrap/esm/Button";
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Pateint_Records from "../Pateint_Records";
 import Pateint_Records from "../Pateint_Panel/Pateint_Records";
 import { useParams } from "react-router-dom";
@@ -12,12 +14,17 @@ const User_Home = () => {
   const [usersList, setUsersList] = useState([]);
   const [name, setUsername] = useState("");
   
-  // useEffect(() => {
+  
+  useEffect(() => {
     
-  //   loadUser();
+    // loadUser();
+    const items = JSON.parse(localStorage.getItem("name"));
+    if (items) {
+      setUsername(items);
+    }
    
     
-  // }, []);
+  }, []);
 // fetch("http://localhost:3008/users")
     //   .then((resp) => resp.json())
     //   .then((info) => setUsersList(info));
@@ -26,7 +33,7 @@ const User_Home = () => {
     // fetch("http://localhost:3008/users")
     //   .then((resp) => resp.json())
     //   .then((info) => setUsersList(info));
-    loadUse2();
+    loadUser();
    
     
   }, []);
@@ -70,12 +77,12 @@ const User_Home = () => {
      
      
       <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">
+        {/* <Container> */}
+          {/* <Navbar.Brand href="#home"> */}
           <Link to="/Add_Doctor"> <Button>Add Doctor</Button></Link>
         
-          </Navbar.Brand>
-        </Container>
+          {/* </Navbar.Brand> */}
+        {/* </Container> */}
       </Navbar>
 
       <table className="table table-bordered" varriant="danger">
@@ -108,8 +115,10 @@ const User_Home = () => {
              <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
-               <td> <Link to={`/Home/Edit_Doctors/${user.id}`}><Button>Edit</Button></Link></td> 
-               <Link onClick={()=>Delet_User(user.id)}><Button>Delet</Button></Link>
+              <td> <Link to={`/Home/Edit_Doctors/${user.id}`}><Button>Edit</Button></Link></td> 
+              <Link onClick={()=>Delet_User(user.id)}><Button>Delet</Button></Link>
+              
+               
               
             </tr>
           ))}
