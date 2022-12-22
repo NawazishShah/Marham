@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Sidebar from './Pateint_Dashboard';
+import Header from '../Elements/Header';
+import Footer from '../Elements/Footer';
 const Sign = () => {
     const nav = useNavigate();
     const [id, setId] = useState();
@@ -65,10 +67,14 @@ const Sign = () => {
   
     }
     return (
+        <>
+        <Header/>
+          <div className='carousel_item bg-info'>
+            <Card style={{ width: '18rem' }}>
         <form className='from-control'>
             <div className='form-control'>
-                <h2 className='text-center'> Registration</h2>
                 <div className='form-body'>
+                <h2 className='text-center'> Registration</h2>
                     <div className='form-control'>
                         <label> </label>
 
@@ -131,6 +137,9 @@ const Sign = () => {
                 </Card.Body>
             </Card>
         </form>
-
+        </Card>
+        </div>
+        <Footer/>
+        </>
     );
 }; export default Sign;

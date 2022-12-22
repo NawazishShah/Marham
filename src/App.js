@@ -16,6 +16,8 @@ import {  Routes, Route } from "react-router-dom";
 import Edit_Doctors from './Components/Doctor_Panel/Edit_Doctor';
 import Patient_Loging from './Components/Pateint_Panel/Patein_Login';
 import Pateint_Dashboard from './Components/Pateint_Panel/Pateint_Dashboard';
+import Find_Doctor from './Components/Pateint_Panel/Find_Doctor';
+import Book_Appointment from './Components/Pateint_Panel/Book_Appointment';
 // import Moment from 'react-moment';
 // import 'moment-timezone';
 //  import User_Home from './Components/Home';
@@ -32,11 +34,11 @@ function App() {
     
     <div className="App">
      
-      <header className="App-header">
-        <h1>MERHAM</h1>
-      </header>
+      
      
       <Routes>
+      <Route exact path="/Book_Appointment"  element={<Book_Appointment />}/>
+      <Route exact path="/Find_Doctor"  element={<Find_Doctor />}/>
       <Route exact path="/Main_Page"  element={<User_Page />}/>
       <Route exact path="/Hospital_Login"  element={<Hospital_Login />}/>
       
@@ -52,12 +54,7 @@ function App() {
       </Routes>
       
             {/* <Moment>{dateToFormat}</Moment> */}
-     <footer className='App-header'>
-     <p>We are providing the medicle services</p> 
-     
-     {/* <Moment subtract={{  hours: 12 }}>{date}</Moment> */}
-   
-     </footer>       
+          
     </div>
   );
 }

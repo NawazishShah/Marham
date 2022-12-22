@@ -35,7 +35,7 @@ code {
   width: 100rem;
   height: 500px;
 }
-
+/* 
 nav{
   background-color: rgb(48, 21, 74);
   padding: 20px 20px 20px;
@@ -44,4 +44,16 @@ nav a{
   margin-right: 20px;
 background-color: rgb(7, 1, 12);
 text-decoration: none;
+} */
+
+.carousel_item{
+  width: 100vw;
+  height: 80vh;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card{
+  height: 80vh;
 }

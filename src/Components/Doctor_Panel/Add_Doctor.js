@@ -5,7 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Topbar from "../Elements/Topbar";
+import { Card } from "react-bootstrap";
 const Add_Doctors=()=>{
+    
+
+  const navigate = useNavigate();
     const[doctor, setDoctor]= useState({
         name:"",
         email:""
@@ -33,15 +38,26 @@ const Add_Doctors=()=>{
     }
  
     return(
-        
-        <form className='from-control'>
+        <>
+                <Topbar user="Admin"/>
+    <div class="sidebar">
+  <a onClick={()=>navigate("/Home")} href="#">Dashboard</a>
+  <a class="active" onClick={()=>navigate("/Add_Doctor")}  href="#">Add Doctor</a>
+  <a onClick={()=>navigate("/Patient")} href="#">Pateint List</a>
+  <a href="#">Doctor List</a>
+  <a onClick={()=>navigate("/Main_Page")} href="#">Log Out</a>
+</div>
+
+<div class="content d-flex justify-content-center mt-5" style={{  zIndex: '1' }}>
+    
+        <form className='from-control w-50 '>
             
     
-            <div className='form-control'>
+            <div className='form-control bg-light'>
             <h2 className='text-center'> Add Doctor</h2>
            
                 <div className='form-body'>
-                    <div className='form-control'>
+                    <div className='form-control bg-light'>
                    
                         <input className='form-control '
                             placeholder='Name'
@@ -66,7 +82,7 @@ const Add_Doctors=()=>{
                 </div>
                 <NavLink style={NavLinkCSS} to ='/Home'>
                 <Button onClick={onSubmit} >Submit
-                <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} />
+                {/* <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} /> */}
                 </Button>
                 
                 </NavLink>
@@ -74,5 +90,7 @@ const Add_Doctors=()=>{
             </div>
             
         </form>
+        </div>
+        </>
     );
 }; export default Add_Doctors;

@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 // import { useRef } from "react";
 import Pateint_Dashboard from "./Pateint_Dashboard";
+import Header from "../Elements/Header";
+import Footer from "../Elements/Footer";
+import { Card } from "react-bootstrap";
 
 
 const Patient_Loging = () => {
@@ -80,12 +83,15 @@ useEffect(()=>{
 },[])
  
 return (
-  
+  <>
+  <Header/>
+  <div className='carousel_item bg-info'>
+  <Card style={{ width: '18rem' }} className='p-3'>
     <div className="form mt-3">
-      <h2 className="text-center">Login</h2>
+      <h2 className="text-center ">Login</h2>
       <form onSubmit={SUBMIT}>
-      <div className="form-body">
-        <div className="email">
+      <div className="form-body p-2">
+        <div className="email py-2">
           <label className="form__label" for="email">
             Email{" "}
           </label>
@@ -123,6 +129,10 @@ return (
       </div>
       </form>
     </div>
+    </Card>
+    </div>
+    <Footer/>
+    </>
   );
 };
 export default Patient_Loging;

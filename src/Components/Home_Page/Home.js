@@ -9,7 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Pateint_Records from "../Pateint_Records";
 import Pateint_Records from "../Pateint_Panel/Pateint_Records";
 import { useParams } from "react-router-dom";
+import Topbar from "../Elements/Topbar";
+import { useNavigate } from "react-router-dom/dist";
+
 const User_Home = () => {
+  
+
+  const navigate = useNavigate();
   const {id}=useParams();
   const [usersList, setUsersList] = useState([]);
   const [name, setUsername] = useState("");
@@ -69,6 +75,16 @@ const User_Home = () => {
   
   return (
     <>
+    <Topbar user="Admin"/> 
+    <div class="sidebar">
+  <a class="active" href="#">Dashboard</a>
+  <a onClick={()=>navigate("/Add_Doctor")}  href="#">Add Doctor</a>
+  <a onClick={()=>navigate("/Patient")} href="#">Pateint List</a>
+  <a href="">Doctor List</a>
+  <a onClick={()=>navigate("/Main_Page")} href="">Log Out</a>
+</div>
+
+<div class="content" style={{  zIndex: '1' }}>
     <Pateint_Records/>
     <div className="card p-10" >
       {/* <h1>{name}</h1> */}
@@ -134,6 +150,7 @@ const User_Home = () => {
         </button>
        
        
+    </div>
     </div>
     </>
   );

@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useRef } from "react";
+import { Card } from "react-bootstrap";
+import Header from "../Elements/Header";
 
 // import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
@@ -34,7 +36,10 @@ const Doctor_Loging = () => {
   };
  
   return (
-  
+  <>
+  <Header/>
+  <div className='carousel_item bg-info'>
+  <Card style={{ width: '18rem' }} className='p-3'>
     <div className="form mt-3">
      {/* <DatePicker selected={startdate} onChange={(date) => setStartDate(date)} /> */}
       <h2 className="text-center">Login</h2>
@@ -77,6 +82,9 @@ const Doctor_Loging = () => {
       </div>
       </form>
     </div>
+    </Card>
+    </div>
+    </>
   );
 };
 export default Doctor_Loging;

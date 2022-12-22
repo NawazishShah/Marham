@@ -5,10 +5,42 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import SplitButton from 'react-bootstrap/SplitButton';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import '../Sidebar.css'
+import Topbar from '../Elements/Topbar';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom/dist';
 const Pateint_Dashboard = () => {
+
+
+  const navigate = useNavigate();
+  const [usersList, setUsersList] = useState([]);
+
+ 
+
+
+  useEffect(() => {
+      fetch("http://localhost:3008/Pateint")
+        .then((resp) => resp.json())
+        .then((info) => setUsersList(info));
+      //  login()
+  
+  
+    }, []);
+
     return (
-        
-        <Container>
+      <>
+      <Topbar user="Patient"/>
+      <div class="sidebar">
+  <a class="active" href="#home">Dashboard</a>
+  <a onClick={()=>navigate("/Find_Doctor")}  href="#">Find Doctor</a>
+  <a href="">View Appointment</a>
+  <a href="">Edit Details</a>
+</div>
+
+<div class="content p-5" style={{  zIndex: '1' }}>
+<h2 className='bg-info text-left my-2 py-2'>Doctors List</h2>
+               
+  {/* ..<Container>
          <Navbar expand="lg" variant="light" bg="light">
         <Container>
           <Navbar.Brand >Pateint</Navbar.Brand>
@@ -67,13 +99,14 @@ const Pateint_Dashboard = () => {
         </Dropdown.Menu>
     </Dropdown>
 
+
                
                 <li class="nav-item mb-2">
                     {/* <a class="nav-link text-secondary" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="far fa-file-word font-weight-bold"></i> <span className="ml-3"> Reports▾</span></a> */}
-                    <ul class="list-unstyled flex-column pl-3 collapse" id="submenu1" aria-expanded="false">
+                    {/* <ul class="list-unstyled flex-column pl-3 collapse" id="submenu1" aria-expanded="false">
                       
-                    </ul>
-                </li>
+                    </ul> */}
+                {/* </li>
                 <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#"><i class="far fa-chart-bar font-weight-bold"></i> 
                 <span className="ml-3">Analytics</span></a></li>
                 <li class="nav-item mb-2"><a class="nav-link text-secondary" href="#"><i class="fas fa-file-export font-weight-bold">
@@ -84,7 +117,68 @@ const Pateint_Dashboard = () => {
             </ul>
             
        </div>
-       </Container>
+       </Container> */} 
+       <div>
+   
+
+
+
+
+<div className='card mt-5'>
+
+       <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+  {usersList.map((Patient) => (
+      <tr>
+      <th scope="row">1</th>
+       <td>{Patient.id}</td>
+        <td>{Patient.name}</td>
+        <td>{Patient.email}</td>
+         {/* <td> <Link to={`/Home/Edit_Doctors/${user.id}`}><Button>Edit</Button></Link></td> 
+         <Link onClick={()=>Delet_User(user.id)}><Button>Delet</Button></Link> */}
+        
+      </tr>
+    ))}
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+       </div>
+</div>
+        
+       </>
     )
 };
  
